@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             			http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+
+	<persistence-unit name="baseprojectPU"
+		transaction-type="RESOURCE_LOCAL">
+		<description>JPA Persistence unit for base project</description>
+
+		<class>com.base.project.model.Base</class>
+
+		<properties>
+			<!-- Configure trace for development -->
+			<!-- <property name="hibernate.show_sql" value="true"/> -->
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+			<property name="javax.persistence.schema-generation.database.action" 	value="drop-and-create" />
+			<property name="hibernate.id.new_generator_mappings" value="false" />			
+
+			<!-- Configure connection to data base -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/basedb" />
+			<property name="hibernate.connection.username" value="juanmi" />
+			<property name="hibernate.connection.password" value="12345678" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+		</properties>
+	</persistence-unit>
+
+
+
+
+
+</persistence>
