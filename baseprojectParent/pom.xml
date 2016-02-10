@@ -12,6 +12,7 @@
 		<spring.version>4.2.4.RELEASE</spring.version>
 		<mysql.version>5.1.28</mysql.version>
 		<hibernate.version>5.0.7.Final</hibernate.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencyManagement>
@@ -23,6 +24,8 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
 				<version>${spring.version}</version>
+				<type>pom</type>
+            	<scope>import</scope>
 			</dependency>
 			
 			<!-- Hibernate -->
@@ -30,6 +33,11 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
 				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>			
 			</dependency>
 			
 			<!-- MySQL -->
@@ -45,13 +53,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
+			<artifactId>log4j-core</artifactId>
 			<version>2.5</version>
 		</dependency>
 	</dependencies>
