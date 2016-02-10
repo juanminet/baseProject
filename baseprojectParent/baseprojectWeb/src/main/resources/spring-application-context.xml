@@ -25,7 +25,6 @@
 	<!-- Librería propia del proyecto -->
   	<import resource="classpath:spring-dao-context.xml" />  
 	<import resource="classpath:spring-service-context.xml"/> 	
-	<import resource="classpath:spring-web-context.xml" />
 	
 	<!-- Configuracion jdbc -->
 	<import resource="classpath:spring-jdbc-config.xml"/>

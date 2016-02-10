@@ -14,12 +14,13 @@
 	<name>baseprojectWeb</name>
 
 	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>		
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 	</properties>
 
 
 
 	<build>
+		<finalName>baseprojectWeb</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -43,7 +44,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
 					<webResources>
 						<resource>
 							<filtering>true</filtering>
@@ -57,13 +58,6 @@
 					<defaultLibBundleDir>WEB-INF/lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
-				<version>2.6</version> <executions> <execution> <phase>validate</phase> <goals> 
-				<goal>copy</goal> </goals> <configuration> <outputDirectory>${endorsed.dir}</outputDirectory> 
-				<silent>true</silent> <artifactItems> <artifactItem> <groupId>javax</groupId> 
-				<artifactId>javaee-endorsed-api</artifactId> <version>7.0</version> <type>jar</type> 
-				</artifactItem> </artifactItems> </configuration> </execution> </executions> 
-				</plugin> -->
 		</plugins>
 	</build>
 
@@ -102,12 +96,26 @@
 			<version>1.7.1</version> </dependency> -->
 
 		<!-- STANDARDS J2EE -->
-		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-web-api</artifactId> 
-			<version>7.0</version> <scope>provided</scope> </dependency> <dependency> 
-			<groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> </dependency> 
-			<dependency> <groupId>javax.servlet.jsp</groupId> <artifactId>jsp-api</artifactId> 
-			</dependency> <dependency> <groupId>javax.servlet</groupId> <artifactId>javax.servlet-api</artifactId> 
-			</dependency> -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency> -->
 	</dependencies>
 
 </project>
