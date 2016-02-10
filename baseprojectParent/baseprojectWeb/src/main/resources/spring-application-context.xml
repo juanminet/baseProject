@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"	
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Property Configurator -->
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+   		<property name="locations">
+   			<list>
+   				<value>classpath:jdbc.properties</value>
+   			</list>
+   		</property>	   		
+	</bean> 
+	
+	
+	<!-- Librería propia del proyecto -->
+  	<import resource="classpath:spring-dao-context.xml" />  
+	<import resource="classpath:spring-service-context.xml"/> 	
+	<import resource="classpath:spring-web-context.xml" />
+	
+	<!-- Configuracion jdbc -->
+	<import resource="classpath:spring-jdbc-config.xml"/>
+	
+	
+	<!-- configuracion log -->
+	<!-- <import resource="classpath:log/log-aspect-config.xml"/> -->
+</beans>
+	

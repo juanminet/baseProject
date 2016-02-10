@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	        http://www.springframework.org/schema/jee
+            http://www.springframework.org/schema/jee/spring-jee-4.0.xsd">
+
+	<!--  SERVICE annotations  -->
+	<context:component-scan base-package="com.base.project.service" />  
+	
+	
+	<!-- <bean class="org.springframework.orm.jpa.DefaultJpaDialect"></bean> -->
+
+ 	<!-- Transacciones declarativas	-->
+ 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+ 	 <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+ 	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+</beans>
