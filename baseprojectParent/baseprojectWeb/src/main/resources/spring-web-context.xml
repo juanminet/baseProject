@@ -21,10 +21,10 @@
 	<mvc:resources mapping="/resources/**" location="/recursos/" />
 	
 	<!-- Busca controladores anotados con @Controller -->
-	<context:component-scan base-package="com.base.project.web.controller" />
-	
-<!-- <context:component-scan base-package="com.base.web.rest" />
-	<context:component-scan base-package="com.base.web.ajax" />	 -->
+	<context:component-scan base-package="com.base.project.web.controller" />	<!-- 
+ 	<context:component-scan base-package="com.base.project.web.rest" /> -->
+ 	
+	<!-- context:component-scan base-package="com.base.web.ajax" />	 -->
 
 
 	<!-- RESOLVER -->

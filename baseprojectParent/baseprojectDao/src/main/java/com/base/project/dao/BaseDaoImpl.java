@@ -1,8 +1,11 @@
 package com.base.project.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +35,14 @@ public class BaseDaoImpl implements IBaseDao {
 
 	public void deleteBase(Long id) {
 		em.remove(getBaseById(id));
+	}
+
+	public List<Base> getAllBases() {
+		Query query = em.createNamedQuery("findAllBases");
+		
+		List<Base> resListBase = query.getResultList();
+		
+		return resListBase;
 	}
 
 }

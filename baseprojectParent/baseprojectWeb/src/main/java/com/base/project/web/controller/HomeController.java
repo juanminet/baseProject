@@ -1,5 +1,8 @@
 package com.base.project.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -20,38 +23,66 @@ import com.base.project.web.controller.commands.BaseCommand;
 @RequestMapping("/home")
 public class HomeController extends BaseController{
 	
-	private int count = 0;
-	
-	@Autowired
-	IBaseService baseService;
-
 	@RequestMapping(method=RequestMethod.GET)
 	public String getHomePage(ModelMap model){	
-		count++;
-		BaseCommand baseCommand = new BaseCommand();
-		model.put("baseCommand", baseCommand);		
-		model.put("count", count);
-		return super.HOME_PAGE;
+		
+		return HOME_PAGE;
 	}
 	
-	
-	@RequestMapping(value={"/save"}, method=RequestMethod.POST)
-	public String addValue(@Valid BaseCommand baseCommand, BindingResult errors, Model model, HttpSession session){
-		
-		addBase(baseCommand);
-		
-		return super.HOME_PAGE;
-	}
-	
-	private void addBase(BaseCommand baseCommand) {
-		
-		
-		//create athlete data		
-		Base base = new Base();
-		base.setValue(baseCommand.getValue());
-		base.setDescription(baseCommand.getDescription());
-		
-		baseService.setBase(base);
-	}
-	
+//	private int count = 0;
+//	
+//	@Autowired
+//	IBaseService baseService;
+//
+//	@RequestMapping(method=RequestMethod.GET)
+//	public String getHomePage(ModelMap model){	
+//		count++;
+//		BaseCommand baseCommand = new BaseCommand();		
+//		
+//		model.put("baseList", getAllBases());	
+//		model.put("baseCommand", baseCommand);		
+//		model.put("count", count);
+//		return super.HOME_PAGE;
+//	}	
+//
+//
+//	@RequestMapping(value={"/save"}, method=RequestMethod.POST)
+//	public String addValue(@Valid BaseCommand baseCommand, BindingResult errors, ModelMap model, HttpSession session){
+//		
+//		addBase(baseCommand);
+//		
+//		model.put("baseList", getAllBases());
+//		model.put("baseCommand", baseCommand);		
+//		model.put("count", count);
+//		
+//		return super.HOME_PAGE;
+//	}
+//	
+//	private void addBase(BaseCommand baseCommand) {
+//		
+//		
+//		//create athlete data		
+//		Base base = new Base();
+//		base.setValue(baseCommand.getValue());
+//		base.setDescription(baseCommand.getDescription());
+//		
+//		baseService.setBase(base);
+//	}
+//	
+//	private List<BaseCommand> getAllBases() {
+//		List<Base> listBases = baseService.getAllBases();
+//		
+//		List<BaseCommand> baseCommandList = new ArrayList<BaseCommand>();
+// 		for (Base b :  listBases){
+//			BaseCommand baseCommand = new BaseCommand();
+//			baseCommand.setIdBase(b.getId());
+//			baseCommand.setValue(b.getValue());
+//			baseCommand.setDescription(b.getDescription());
+//			
+//			baseCommandList.add(baseCommand);
+//		}
+// 		
+// 		return baseCommandList;
+//	}
+//	
 }

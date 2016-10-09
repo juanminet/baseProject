@@ -1,5 +1,7 @@
 package com.base.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,11 @@ public class BaseServiceImpl implements IBaseService {
 	@Transactional
 	public void deleteBase(Long id) {
 		baseDao.deleteBase(id);
+	}
+
+	@Transactional
+	public List<Base> getAllBases() {
+		return baseDao.getAllBases();
 	}
 
 }

@@ -1,7 +1,13 @@
 package com.base.project.web.controller.commands;
 
-public class BaseCommand {
+import java.io.Serializable;
+
+public class BaseCommand  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3035794499489104901L;
 	Long idBase;
 	String value;
 	String description;
